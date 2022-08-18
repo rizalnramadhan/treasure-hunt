@@ -7093,6 +7093,10 @@ img {
 }
 
 @media screen and (min-width:60em) {
+  .bg-transparent-l {
+    background-color: transparent
+  }
+
   .aspect-ratio-l {
     height: 0;
     position: relative
