@@ -7,6 +7,7 @@
   <title>Treasure Hunt</title>
   <link rel="stylesheet" type="text/css" href="/assets/main.css" charset="utf-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/assets/carousel.js"></script>
 </head>
 
 <body class="bg-soft-beige">
@@ -98,26 +99,48 @@
   </div>
 </div>
 
-<div class="vh-100 ph5-l ph4 flex flex-nowrap-l flex-wrap-reverse items-center justify-between-l justify-center bg-gray">
-  <div class="w-50-l w-100 h-50">
-    <iframe style="top:0; left:0;width:100%;height:100%" src="https://www.youtube.com/embed/2sj2iQyBTQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+  <div class="content vh-100 w-100 ph5-l ph4 flex flex-nowrap-l flex-wrap-reverse items-center justify-between-l justify-center bg-yellow">
+    <div class="w-50-l w-100 h-50">
+      <iframe style="top:0; left:0;width:100%;height:100%" src="https://www.youtube.com/embed/2sj2iQyBTQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-end w-50-l w-100 pl5-l">
+      <img class="w-80 mv5-l mv4" src="assets/images/logo-brace.svg">
+      <span id="popup" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green">Daftar Sekarang</span>
+    </div>
   </div>
-  <img class="w-50-l w-100 pl5-l" src="assets/images/logo-manohara.svg">
+
+  <div class="content vh-100 w-100 ph5-l ph4 flex flex-nowrap-l flex-wrap-reverse items-center justify-between-l justify-center bg-gray">
+    <div class="w-50-l w-100 h-50">
+      <iframe style="top:0; left:0;width:100%;height:100%" src="https://www.youtube.com/embed/2sj2iQyBTQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <img class="w-50-l w-100 pl5-l" src="assets/images/logo-manohara.svg">
+  </div>
 </div>
 
-<div class="pv4 ph5-l ph3 mt4 flex flex-wrap items-center justify-center">
+
+<div class="pv4 ph5-l ph3 mt4">
+
   <div class="w-100 pa5-l pa3 pv4 h-100 bg-yellow br3 flex flex-wrap items-center justify-between-l justify-center">
     <div class="w-50-l w-100 tl-l tc">
       <h1 class="f-subheadline-l f2 dark-green mb0">Yuk, bergabung bersama 100+ pendaftar lainnya!</h1>
-      <!-- <img class="w4 pt3" src="/assets/download.png"> -->
     </div>
 
     <div class="w-25-l w-50 mt0-l mt5 h-auto tr">
       <img class="h-100-l h-auto" src="/assets/images/iphone.png">
     </div>
+  </div>
+</div>
 
-    <div class="w-100">
-      <iframe class="mt5" src="https://docs.google.com/forms/d/e/1FAIpQLSeNQgCEAFuqznsQM6Qna08N_zXDUJRpwdS5F4maoMuBzGI1-Q/viewform?embedded=true" width="100%" height="1550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<!-- Popup Form -->
+<div id="popup-content" class="dn fixed top-0 left-0 w-100 vh-100 bg-black-30">
+  <div class="flex items-center justify-center">
+    <div class="w-100 vh-100 tc flex items-center justify-center">
+      <div class="w-75 vh-75 overflow-scroll overflow-x-hidden bg-yellow br3">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNQgCEAFuqznsQM6Qna08N_zXDUJRpwdS5F4maoMuBzGI1-Q/viewform?embedded=true" width="100%" height="1550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <span id="close" class="absolute top-0 right-0 f5 link dim br2 ph3 pv2 mt3 mr4 dib white bg-red">Tutup</span>
+      </div>
     </div>
   </div>
 </div>
@@ -125,9 +148,9 @@
   <footer class="pb4 pt6 ph3 ph5-m ph6-l mid-gray">
   <small class="f6 db tc">© 2022 <b class="ttu">Kartala</b>, All Rights Reserved</small>
   <div class="tc mt3">
-    <a href="/language/" title="Language" class="f6 dib ph2 link mid-gray dim">Language</a>
-    <a href="/terms/"    title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
-    <a href="/privacy/"  title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
+    <a href="#" title="Language" class="f6 dib ph2 link mid-gray dim">Language</a>
+    <a href="#" title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
+    <a href="#" title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
   </div>
 </footer>
 
@@ -137,6 +160,25 @@
       $("#menu").click(function() {
         $("#content").toggle();
       });
+
+      $("#popup").click(function() {
+        $("#popup-content").toggle();
+      });
+
+      $("#close").click(function() {
+        $("#popup-content").toggle();
+      });
+    });
+  </script>
+
+  <script src='https://d33wubrfki0l68.cloudfront.net/js/030b1a59175edb818a8a9983eb41a5ec7b248480/assets/flickity.js'></script>
+  <script>
+    $('.container').flickity({
+      // options
+      cellSelector: '.content',
+      wrapAround: true,
+      contain: true,
+      prevNextButtons: false
     });
   </script>
 </body>

@@ -7,6 +7,7 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" type="text/css" href="/assets/main.css" charset="utf-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/assets/carousel.js"></script>
 </head>
 
 <body class="bg-soft-beige">
@@ -19,6 +20,25 @@
       $("#menu").click(function() {
         $("#content").toggle();
       });
+
+      $("#popup").click(function() {
+        $("#popup-content").toggle();
+      });
+
+      $("#close").click(function() {
+        $("#popup-content").toggle();
+      });
+    });
+  </script>
+
+  <script src='https://d33wubrfki0l68.cloudfront.net/js/030b1a59175edb818a8a9983eb41a5ec7b248480/assets/flickity.js'></script>
+  <script>
+    $('.container').flickity({
+      // options
+      cellSelector: '.content',
+      wrapAround: true,
+      contain: true,
+      prevNextButtons: false
     });
   </script>
 </body>
